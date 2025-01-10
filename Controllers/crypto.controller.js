@@ -4,6 +4,9 @@ const CryptoData = require("../Models/CryptoData.model");
 const { calculateStandardDeviation } = require("../Utils/apiHelper");
 const { success, error } = require("../Utils/responseWrapper");
 // Controller function for /stats
+//ALGO
+// 1. Fetch the latest data for the requested coin from db
+// 2. Return the latest price, market cap, and 24h change
 exports.getCryptoStats = async (req, res) => {
   try {
     const { coin } = req.query;
@@ -37,6 +40,11 @@ exports.getCryptoStats = async (req, res) => {
 };
 
 // Controller function for /deviation
+//This function is used to calculate standard deviation
+//ALGO
+//STEP 1: Get the last  prices from the pastPrice array, including the current price as well
+//STEP 2: Calculate the standard deviation
+//STEP 3: Return the standard deviation
 exports.getCryptoPriceDeviation = async (req, res) => {
   try {
     const { coin } = req.query;
